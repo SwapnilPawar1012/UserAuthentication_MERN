@@ -19,7 +19,7 @@ mongoose
 // Import User model or schema
 const User = require("./models/User");
 
-app.post("/register", async (req, res) => {
+app.post("/signup", async (req, res) => {
   try {
     let check = await User.findOne({ email: req.body.email });
     if (check) {
