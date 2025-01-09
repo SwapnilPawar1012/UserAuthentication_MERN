@@ -1,0 +1,129 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  user-select: none;
+}
+
+.home {
+  width: 100vw;
+  height: 100vh;
+  /* background-color: rgb(190, 224, 254); */
+  /* background: radial-gradient(); */
+}
+
+.home {
+  background-image: url("./assets/security3.jpg");
+  background-repeat: no-repeat;
+  /* background-size: cover; */
+  object-fit: fill;
+  display: flex;
+  align-items: center;
+}
+
+.auth {
+  display: grid;
+  gap: 50px;
+  width: 60vw;
+  justify-content: center;
+}
+
+.link {
+  text-decoration: none;
+}
+
+.signup-btn,
+.login-btn {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  color: white;
+  font-size: 32px;
+  width: 500px;
+  height: 90px;
+  border: 2px solid;
+  border-radius: 57px;
+  /* text-decoration: none; */
+  background: linear-gradient(181deg, blue -8%, black);
+  /* background: radial-gradient(black 42%, transparent); */
+  /* color: darkblue; */
+  /* background: linear-gradient(0deg, black, transparent); */
+}
+
+.signup-page,
+.login-page {
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(red, transparent);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.signup-box,
+.login-box {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  height: fit-content;
+  padding: 25px 50px 50px;
+  /* background: radial-gradient(black 42%, transparent); */
+  /* color: darkblue; */
+  background: linear-gradient(0deg, black, transparent);
+  border-radius: 20px;
+  border: 1px double;
+  text-align: center;
+}
+
+.input-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 10px;
+  font-size: 24px;
+}
+
+.heading {
+  padding: 0 0 20px;
+}
+
+.input-group-text {
+  /* text-align: end; */
+  padding: 0 60px;
+}
+
+input {
+  background: aliceblue;
+  border: none;
+  border-radius: 6px;
+  padding: 10px;
+  font-size: 14px;
+  color: black;
+}
+
+.submit-btn {
+  width: 97%;
+  margin: 32px;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 8px 0;
+  margin: 27px auto 1px;
+  background: transparent;
+  border: 0.2px solid white;
+  border-radius: 6px;
+  background: linear-gradient(181deg, blue -8%, transparent);
+}
