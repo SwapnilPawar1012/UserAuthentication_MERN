@@ -5,8 +5,7 @@ function Logout() {
   const navigate = useNavigate();
   useEffect(() => {
     sessionStorage.removeItem("token");
-    alert("Logged out successfully!");
-    navigate("/home");
+    navigate("/home", { state: { callFunction: true } });
   }, []);
   return <></>;
 }

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "../css/Authentication.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
@@ -36,15 +37,16 @@ function Login() {
           console.log("Response: ", response);
           if (response.statusText === "OK") {
             sessionStorage.setItem("token", response.data.token); // set session using jwt token
-            alert(response.data.description);
-            navigate("/home");
+            navigate("/home", { state: { callFunction: true } });
           } else {
             alert(response.data.description);
           }
         })
-        .catch((error) => console.log("Login error: ", error));
+        .catch((error) => {
+          alert("Something wrong! Please try again.");
+        });
     } catch (error) {
-      console.error("Login error: ", error);
+      alert("Something wrong! Please try again.");
     }
   };
 

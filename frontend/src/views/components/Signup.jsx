@@ -1,13 +1,12 @@
 import React, { useState } from "react";
+import "../css/Authentication.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 function Signup() {
   const navigate = useNavigate(); // Initialize useNavigate
   const [privacyEye, setPrivacyEye] = useState("eye_solid");
-  console.log("eye: ", privacyEye);
   const [passwordSecurity, setPasswordSecurity] = useState("password");
-  console.log("passwordText: ", passwordSecurity);
 
   const HandlePrivacyEye = () => {
     setPasswordSecurity((prev) => (prev === "password" ? "text" : "password"));
@@ -21,7 +20,6 @@ function Signup() {
     email: "",
     password: "",
   });
-  console.log(data);
 
   const HandleUserData = (e) => {
     const { name, value } = e.target;
@@ -37,18 +35,19 @@ function Signup() {
       await axios
         .post("http://localhost:5000/signup", data)
         .then((response) => {
-          console.log("Response: ", response);
           if (response.statusText === "OK") {
             sessionStorage.setItem("token", response.data.token); // set session using jwt token
             alert(response.data.description);
-            navigate("/home");
+            navigate("/home", { state: { callFunction: true } });
           } else {
             alert(response.data.description);
           }
         })
-        .catch((error) => console.error("Sign Up error: ", error));
+        .catch((error) => {
+          alert("Something wrong! Please try again.");
+        });
     } catch (error) {
-      console.error("Sign Up error: ", error);
+      alert("Something wrong! Please try again.");
     }
   };
 
