@@ -19,7 +19,7 @@ mongoose
 // Import User model or schema
 const User = require("./models/User");
 
-app.post("/register", async (req, res) => {
+app.post("/signup", async (req, res) => {
   try {
     let check = await User.findOne({ email: req.body.email });
     if (check) {
@@ -38,9 +38,7 @@ app.post("/register", async (req, res) => {
       email: req.body.email,
       password: hashedPassword,
     });
-    // console.log("User: ", user);
 
-    // console.log("_id: ", user._id);
     await user.save();
     console.log("user saved!");
 
@@ -69,7 +67,6 @@ app.post("/login", async (req, res) => {
     if (user) {
       // Verify Password
       let isMatch = await bcrypt.compare(req.body.password, user.password);
-      // console.log("Password Match: ", isMatch);
 
       if (isMatch) {
         let data = {
@@ -102,6 +99,7 @@ app.post("/login", async (req, res) => {
 });
 
 const fetchUser = require("./Middleware/FetchUser");
+
 // API creation
 app.get("/", (req, res) => {
   console.log(fetchUser);
